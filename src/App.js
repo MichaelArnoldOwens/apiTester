@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ExplorerComponent from './components/ExplorerComponent';
 import './App.css';
 
 class App extends Component {
   render() {
+    const test = {
+      name: 'email',
+      type: 'email',
+      max: 24,
+      min: 3,
+    };
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <ExplorerComponent
+          url='https://jsonplaceholder.typicode.com/users'
+          method='POST'
+          body={[
+            {
+              name: 'email',
+              type: 'email',
+              max: 24,
+              min: 3,
+            },
+            {
+              name: 'full-name',
+              type: 'text',
+              placeholder: 'John Doe',
+              required: true,
+            },
+            {
+              name: 'phone',
+              type: 'tel',
+              pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}',
+            },
+          ]}
+          />
       </div>
     );
   }
