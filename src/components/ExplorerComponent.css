@@ -1,0 +1,20 @@
+.container {
+  margin: 20px;
+  border: 1px solid;
+  padding: 10px;
+}
+
+.title {
+  padding-bottom: 5px;
+  font-size: 24px;
+}
+
+.field-title {
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+
+.field-submit {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

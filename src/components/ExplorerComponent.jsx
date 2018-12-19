@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Input from './Input';
-import Response from './Response';
 import {titleCase} from '../utils/string'
 import {sendRequest} from '../utils/network';
 import PropTypes from 'prop-types';
+import './ExplorerComponent.css'
 
 
 class ExplorerComponent extends Component {
@@ -27,7 +27,6 @@ class ExplorerComponent extends Component {
     console.log('submit clicked')
     const {url, method} = this.props;
     const {formInputs} = this.state;
-    console.log(formInputs)
     sendRequest({url, method, data: {...formInputs}}).then(response => {
       this.setState({response: JSON.stringify(response)})
     })
@@ -42,13 +41,15 @@ class ExplorerComponent extends Component {
       result.push(
         <div>
           <label>
-            {titleCase(name)}
-            <Input
-              value={state[name] || undefined}
-              onChange={this.handleFieldValueChange
-              (name)}
-              {...obj}
-            />
+            <div className="field-title">{titleCase(name)}</div>
+            <div>
+              <Input
+                value={state[name] || undefined}
+                onChange={this.handleFieldValueChange
+                (name)}
+                {...obj}
+              />
+            </div>
           </label>
         </div>
       )
@@ -61,13 +62,15 @@ class ExplorerComponent extends Component {
     const {response} = this.state;
     
     return (
-      <div>
-        <div>Body</div>
+      <div className="container">
+        <div className="title">Body</div>
         {body ? this.processBody() : null}
 
-        <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+        <input className="field-submit" type="submit" value="Send request" onClick={this.handleSubmit}/>
 
-        <Response body={response}/>
+        <div className="title">Response</div>
+        <div>{response || ''}</div>
+        
 
       </div>
     );

@@ -4,12 +4,6 @@ import './App.css';
 
 class App extends Component {
   render() {
-    const test = {
-      name: 'email',
-      type: 'email',
-      max: 24,
-      min: 3,
-    };
     return (
       <div className="App">
         <ExplorerComponent
