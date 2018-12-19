@@ -1,0 +1,39 @@
+.container {
+  margin: 20px;
+  border: 1px solid;
+  padding: 10px;
+}
+
+.title {
+  padding-bottom: 5px;
+  font-size: 24px;
+}
+
+.title-method {
+  @extend .title;
+  color: red;
+}
+
+.field-title {
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+
+.vertical-margin {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.field-submit {
+  @extend .vertical-margin;
+}
+
+.base-url {
+  @extend .vertical-margin;
+}
+
+.response-field {
+  border: 1px solid;
+  min-height: 100px;
+  background-color: lightyellow;
+}

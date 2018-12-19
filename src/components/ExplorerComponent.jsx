@@ -3,7 +3,7 @@ import Input from './Input';
 import {titleCase} from '../utils/string'
 import {sendRequest} from '../utils/network';
 import PropTypes from 'prop-types';
-import './ExplorerComponent.css'
+import './ExplorerComponent.scss'
 
 
 class ExplorerComponent extends Component {
@@ -58,18 +58,23 @@ class ExplorerComponent extends Component {
   }
 
   render() {
-    const {body} = this.props;
+    const {body, method, url} = this.props;
     const {response} = this.state;
     
     return (
       <div className="container">
+        <div className="title-method">{method}</div>
+        <div className="base-url">
+          <div>Base URL</div>
+          <div>{url}</div>
+        </div>
         <div className="title">Body</div>
         {body ? this.processBody() : null}
 
         <input className="field-submit" type="submit" value="Send request" onClick={this.handleSubmit}/>
 
         <div className="title">Response</div>
-        <div>{response || ''}</div>
+        <div className="response-field">{response || ''}</div>
         
 
       </div>
