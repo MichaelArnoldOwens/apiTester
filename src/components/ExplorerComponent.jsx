@@ -24,7 +24,6 @@ class ExplorerComponent extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit clicked')
     const {url, method} = this.props;
     const {formInputs} = this.state;
     sendRequest({url, method, data: {...formInputs}}).then(response => {
