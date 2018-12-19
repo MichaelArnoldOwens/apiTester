@@ -7,7 +7,7 @@ class Response extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.response !== this.props.body
+    return nextProps.body !== this.props.body
   }
 
   render() {
